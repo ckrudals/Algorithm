@@ -1,0 +1,11 @@
+class Solution {
+    fun solution(s: String): String {
+      val answer = s.split(" ").map{ it.lowercase() }.joinToString(" "){
+          it.capitalize()
+      } 
+      
+      
+       
+        return answer
+    }
+}
