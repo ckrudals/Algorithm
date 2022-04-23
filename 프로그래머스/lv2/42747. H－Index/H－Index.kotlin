@@ -1,0 +1,21 @@
+class Solution {
+    fun solution(citations: IntArray): Int {
+        // 총 논문의 수 : citations.size
+        // 인용된 논문 : citations.value
+       var answer = 0
+     
+        for(i in 0..citations.distinct().size+1){
+        var count = 0
+           for(citation in citations){
+               if(i <= citation){
+                  count+=1 
+               }
+               if(i <= count){
+                   answer=i
+               }
+           }
+         
+        }
+        return answer
+    }
+}
