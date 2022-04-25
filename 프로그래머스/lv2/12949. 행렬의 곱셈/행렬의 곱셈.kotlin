@@ -1,0 +1,17 @@
+class Solution {
+    fun solution(arr1: Array<IntArray>, arr2: Array<IntArray>): Array<IntArray> {
+   
+        val with = arr1.size
+        val height = arr2[0].size
+        val multSize = arr2.size
+        val result = Array(with){IntArray(height)}
+        for(i in 0 until with){
+            for(j in 0 until height){
+                for(k in 0 until multSize){
+                    result[i][j] +=arr1[i][k] * arr2[k][j]
+                }
+            }
+        }
+        return result
+    }
+}
