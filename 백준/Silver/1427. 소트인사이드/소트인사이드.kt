@@ -1,0 +1,1 @@
+fun main() = print(readLine()!!.toInt().toString().toList().sortedDescending().map { it }.joinToString(",").replace(",",""))
