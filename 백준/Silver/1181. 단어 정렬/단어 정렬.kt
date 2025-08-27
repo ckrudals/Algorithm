@@ -1,18 +1,16 @@
-import java.io.*
+package `1181`
 
 fun main() {
-    val br = BufferedReader(InputStreamReader(System.`in`))
-    val bw = BufferedWriter(OutputStreamWriter(System.out))
+    val reader = System.`in`.bufferedReader()
+    val number = reader.readLine()!!.toInt()
+    val inputs = mutableListOf<String>()
 
-    val input = br.readLine().toInt()
-    val list = mutableListOf<String>()
-
-    repeat(input) {
-        val word = br.readLine().toString()
-        list.add(word)
+    repeat(number) {
+        inputs.add(reader.readLine()!!)
     }
-    list.distinct().sorted().sortedBy { it.length }.map { it ->
-        bw.write("${it}\n")
-    }
-    bw.flush()
+    
+    inputs
+        .distinct()
+        .sortedWith(compareBy<String> { it.length }.then(naturalOrder()))
+        .map(::println)
 }
