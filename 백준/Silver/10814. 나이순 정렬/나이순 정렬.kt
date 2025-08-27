@@ -1,23 +1,23 @@
+package `10814`
+
+data class Result(
+    val index: Int,
+    val age: Int,
+    val name: String
+)
+
 fun main() {
-    val br = System.`in`.bufferedReader()
-    val bw = System.out.bufferedWriter()
-    val input = br.readLine().toInt()
-    val list = ArrayList<Pair<Int, String>>()
-
-    repeat(input) {
-        val ages = br.readLine().split(" ").map { it }
-        list.add(Pair(ages[0].toInt(), ages[1]))
-    }
-    list.sortWith { d1, d2 ->
-
-        d1.first - d2.first
+    val reader = System.`in`.bufferedReader()
+    val number = reader.readLine()!!.toInt()
+    val inputs = mutableListOf<Result>()
+    repeat(number) { index ->
+        val (age, name) = reader.readLine()!!.split(" ")
+        inputs.add(Result(index, age.toInt(), name))
     }
 
-    for (i in 0 until input) {
-        bw.write("${list[i].first} ${list[i].second}\n")
+    inputs.sortWith(compareBy<Result> { it.age }.thenBy { it.index})
+
+    inputs.forEach {
+        println("${it.age} ${it.name}")
     }
-
-    bw.flush()
-
-
 }
